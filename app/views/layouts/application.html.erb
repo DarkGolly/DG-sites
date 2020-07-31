@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+    </style>
+  </head>
+
+  <body class="bbg">
+    <div class="container">
+      <nav class="navbar navbar-light, d-flex flex-row">
+        <ul class="nav navbar-nav, list-inline">
+          <li class="nav-item active">
+            <a class="nav-link" href="<%= posts_path %>">Статьи <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://vk.com/darkgolly">ВКонтакте</a>
+          </li>
+        </ul>
+        <%= link_to 'Новая статья', new_post_path, class: 'btn btn-outline-primary pull-xs-right' %>
+      </nav>
+    </div>
+
+    <div class="container main">
+      <div class="row">
+        <div class="col-md-12">
+          <% flash.each do |name, message| %>
+          <div class="alert alert-#<%= name %>">
+            <% message %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>
