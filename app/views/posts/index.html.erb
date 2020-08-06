@@ -1,5 +1,8 @@
 <nav  class="nav navbar-nav, list-inline">
+  <%# <%= link_to 'Новая статья', new_post_path, class: 'btn btn-outline-primary' %>
   <h1>Статьи</h1>
 </nav>
 
 <%= render @posts %>
+
+<%= will_paginate(@things, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
