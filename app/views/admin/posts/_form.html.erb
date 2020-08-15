@@ -1,7 +1,7 @@
 
 <% if @post.errors.any? %>
   <div class="alert alert-danger">
-    <h5><% t('common.errors') %></h5>
+    <h5><%= t('common.errors') %></h5>
     <ul>
       <% @post.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<%= form_for @post, html: {multipart: true} do |f| %>
+<%= form_for [:admin, @post], html: {multipart: true} do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
