@@ -21,6 +21,13 @@
           <li class="nav-item">
             <a class="nav-link" href="https://vk.com/darkgolly">ВКонтакте</a>
           </li>
+          <li class="nav-item">
+            <% if user_signed_in? %>
+            <%= link_to 'Новая статья', new_admin_post_path, class: 'btn btn-outline-primary btn-sm' %>
+            <% cache 'world-of-the-hour', expires_in: 2.second, class: "nav-link"  do %>
+              <%= %w(dev mea hell door fuf uwu).sample %>
+            <% end %>
+          </li>
         </ul>
 
 
@@ -28,7 +35,7 @@
 
 
         <ul class="nav navbar-nav, list-inline">
-          <% if user_signed_in? %>
+
             <li class="nav-item">
               <%= link_to "Выход", destroy_user_session_path, method: :delete, class: "nav-link" %>
             </li>
