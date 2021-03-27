@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2020_08_07_121847) do
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
     t.string "avatar"
   end
 
